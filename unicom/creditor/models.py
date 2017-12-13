@@ -6,6 +6,9 @@ from django.core.exceptions import ValidationError
 class Creditor(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
 
 class Credit(models.Model):
     CONSUMER = 'CONS'
@@ -31,6 +34,9 @@ class Credit(models.Model):
     score_min = models.IntegerField()
     score_max = models.IntegerField()
     creditor = models.ForeignKey(Creditor, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name + ' from ' + self.creditor.name
 
     def clean(self):
         if self.score_max < self.score_min:
