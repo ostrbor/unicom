@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext as _
 
 from creditor.models import Credit
 
@@ -17,9 +18,16 @@ class Client(models.Model):
 
 
 class ApplicationForCreditor(models.Model):
+    NEW = 'New'
+    SENT = 'Sent'
+
+    status_choices = [
+        (NEW, _('New status')),
+        (SENT, _('Sent status'))
+    ]
+
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     requested_credit = models.ForeignKey(Credit, on_delete=models.CASCADE)
-    # TODO: replace with Choices
-    status = models.CharField(max_length=50)
+    status = models.CharField(choices=status_choices, max_length=50)
