@@ -10,7 +10,7 @@ class Client(models.Model):
     name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    birthdate = models.DateField()
+    birth_date = models.DateField()
     phone = models.CharField(max_length=50)
     passport = models.CharField(max_length=50)
     # TODO: maybe replace with PositiveIntegerField
@@ -20,14 +20,16 @@ class Client(models.Model):
 class ApplicationForCreditor(models.Model):
     NEW = 'New'
     SENT = 'Sent'
+    RECEIVED = 'Received'
 
     status_choices = [
         (NEW, _('New status')),
-        (SENT, _('Sent status'))
+        (SENT, _('Sent status')),
+        (RECEIVED, _('Was viewed'))
     ]
 
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     requested_credit = models.ForeignKey(Credit, on_delete=models.CASCADE)
-    status = models.CharField(choices=status_choices, max_length=50)
+    status = models.CharField(choices=status_choices, max_length=50, default=NEW)
