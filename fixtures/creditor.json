@@ -1,0 +1,46 @@
+[
+{
+    "model": "creditor.creditor",
+    "pk": 1,
+    "fields": {
+        "name": "Good creditor"
+    }
+},
+{
+    "model": "creditor.creditor",
+    "pk": 2,
+    "fields": {
+        "name": "Bad creditor"
+    }
+},
+{
+    "model": "creditor.credit",
+    "pk": 1,
+    "fields": {
+        "created": "2017-12-13",
+        "updated": "2017-12-13",
+        "rotation_start": "2017-12-13T17:53:33Z",
+        "rotation_end": "2017-12-13T17:53:41Z",
+        "name": "Small",
+        "credit_type": "CONS",
+        "score_min": 1,
+        "score_max": 5,
+        "creditor": 1
+    }
+},
+{
+    "model": "creditor.credit",
+    "pk": 2,
+    "fields": {
+        "created": "2017-12-13",
+        "updated": "2017-12-13",
+        "rotation_start": "2017-12-13T17:56:06Z",
+        "rotation_end": "2017-12-13T17:56:08Z",
+        "name": "Big",
+        "credit_type": "CONS",
+        "score_min": 1,
+        "score_max": 5,
+        "creditor": 2
+    }
+}
+]

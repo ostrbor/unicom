@@ -1,0 +1,43 @@
+[
+{
+    "model": "partner.client",
+    "pk": 1,
+    "fields": {
+        "created": "2017-12-13",
+        "updated": "2017-12-13",
+        "name": "Name",
+        "middle_name": null,
+        "surname": "First",
+        "birth_date": "2017-12-13",
+        "phone": "1",
+        "passport": "1",
+        "credit_score": 1
+    }
+},
+{
+    "model": "partner.client",
+    "pk": 2,
+    "fields": {
+        "created": "2017-12-13",
+        "updated": "2017-12-13",
+        "name": "Name",
+        "middle_name": null,
+        "surname": "Second",
+        "birth_date": "2017-12-13",
+        "phone": "2",
+        "passport": "2",
+        "credit_score": 2
+    }
+},
+{
+    "model": "partner.applicationforcreditor",
+    "pk": 1,
+    "fields": {
+        "created": "2017-12-13",
+        "updated": "2017-12-13",
+        "client": 1,
+        "requested_credit": 1,
+        "status": "New"
+    }
+}
+]
