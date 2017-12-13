@@ -12,7 +12,7 @@ class Credit(models.Model):
     rotation_end = models.DateTimeField()
     name = models.CharField(max_length=200)
     # TODO: add choices
-    credit_type = models.CharField()
+    credit_type = models.CharField(max_length=100)
     # TODO: add validation - min<max
     # TODO: maybe replace scores with PositiveIntegerField
     score_min = models.IntegerField()

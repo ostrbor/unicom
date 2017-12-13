@@ -1,6 +1,6 @@
 from django.db import models
 
-from unicom.creditor.models import Credit
+from creditor.models import Credit
 
 
 class Client(models.Model):
