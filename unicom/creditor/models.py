@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 class Creditor(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, primary_key=True)
 
     def __str__(self):
         return self.name
@@ -23,8 +23,8 @@ class Credit(models.Model):
         (BUSINESS, _('КМСБ'))
     ]
 
-    created = models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
+    created = models.DateField(auto_now_add=True, blank=False)
+    updated = models.DateField(auto_now=True, blank=False)
     rotation_start = models.DateTimeField()
     rotation_end = models.DateTimeField()
     name = models.CharField(max_length=200)

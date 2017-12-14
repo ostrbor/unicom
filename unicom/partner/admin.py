@@ -5,7 +5,7 @@ from .models import Client, ApplicationForCreditor
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('created', 'updated', 'name', 'middle_name', 'surname',
+    list_display = ('created', 'updated','name', 'middle_name', 'surname',
                     'birth_date', 'phone', 'passport', 'credit_score')
     search_fields = ('name', 'middle_name', 'surname', 'phone', 'passport')
     date_hierarchy = 'created'
