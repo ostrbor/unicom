@@ -1,14 +1,17 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from .serializers import ClientSerializer, ApplicationForCreditorSerializer
 from .models import Client, ApplicationForCreditor
 
 
-class ClientViewSet(viewsets.ModelViewSet):
+class ClientViewSet(mixins.CreateModelMixin,
+                    mixins.ListModelMixin,
+                    mixins.RetrieveModelMixin,
+                    viewsets.GenericViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
 
 
-class ApplicationViewSet(viewsets.ModelViewSet):
+class ApplicationCreateView(mixins.CreateModelMixin,
+                            viewsets.GenericViewSet):
     queryset = ApplicationForCreditor.objects.all()
     serializer_class = ApplicationForCreditorSerializer

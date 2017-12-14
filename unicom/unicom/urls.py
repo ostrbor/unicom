@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers
 
-from partner.views import ClientViewSet, ApplicationViewSet
+from partner.views import ClientViewSet, ApplicationCreateView
+from creditor.views import ApplicationReadOnlyView
 
 router = routers.DefaultRouter()
-router.register(r'client', ClientViewSet)
-router.register(r'application', ApplicationViewSet)
+router.register(r'partner/client', ClientViewSet)
+router.register(r'partner/application', ApplicationCreateView)
+router.register(r'creditor/application', ApplicationReadOnlyView)
 
 urlpatterns = [
     path('', include(router.urls)),
