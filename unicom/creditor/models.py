@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 class Creditor(models.Model):
-    name = models.CharField(max_length=200, primary_key=True)
+    name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
