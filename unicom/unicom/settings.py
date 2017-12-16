@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'partner',
     'creditor',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ REST_FRAMEWORK = {
 ADMIN_GROUP = 'Administrators'
 CREDITOR_GROUP = 'Creditors'
 PARTNER_GROUP = 'Partners'
+
+AUTH_USER_MODEL = 'core.User'

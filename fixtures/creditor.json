@@ -3,44 +3,44 @@
     "model": "creditor.creditor",
     "pk": 1,
     "fields": {
-        "name": "Good creditor"
+        "name": "Citigroup"
     }
 },
 {
     "model": "creditor.creditor",
     "pk": 2,
     "fields": {
-        "name": "Bad creditor"
+        "name": "Bank of America"
     }
 },
 {
     "model": "creditor.credit",
     "pk": 1,
     "fields": {
-        "created": "2017-12-13",
-        "updated": "2017-12-13",
-        "rotation_start": "2017-12-13T17:53:33Z",
-        "rotation_end": "2017-12-13T17:53:41Z",
-        "name": "Small",
-        "credit_type": "CONS",
-        "score_min": 1,
-        "score_max": 5,
-        "creditor": 1
+        "created": "2017-12-16",
+        "updated": "2017-12-16",
+        "rotation_start": "2017-12-16T00:00:00Z",
+        "rotation_end": "2017-12-31T00:00:00Z",
+        "name": "Home Mortgage Loans",
+        "credit_type": "MORT",
+        "score_min": 5,
+        "score_max": 10,
+        "creditor": 2
     }
 },
 {
     "model": "creditor.credit",
     "pk": 2,
     "fields": {
-        "created": "2017-12-13",
-        "updated": "2017-12-13",
-        "rotation_start": "2017-12-13T17:56:06Z",
-        "rotation_end": "2017-12-13T17:56:08Z",
-        "name": "Big",
-        "credit_type": "CONS",
-        "score_min": 1,
-        "score_max": 5,
-        "creditor": 2
+        "created": "2017-12-16",
+        "updated": "2017-12-16",
+        "rotation_start": "2017-12-16T00:00:00Z",
+        "rotation_end": "2017-12-31T00:00:00Z",
+        "name": "Auto Loans in California",
+        "credit_type": "AUTO",
+        "score_min": 5,
+        "score_max": 8,
+        "creditor": 1
     }
 }
 ]

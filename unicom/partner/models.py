@@ -38,7 +38,7 @@ class ApplicationForCreditor(models.Model):
     updated = models.DateField(auto_now=True, blank=False)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     requested_credit = models.ForeignKey(Credit, on_delete=models.CASCADE)
-    status = models.CharField(choices=status_choices, max_length=50, default=NEW)
+    status = models.CharField(choices=status_choices, max_length=50, default=NEW, blank=True)
 
     def __str__(self):
         return 'From client ' + self.client.surname + ' with status ' + self.status

@@ -3,40 +3,40 @@
     "model": "partner.client",
     "pk": 1,
     "fields": {
-        "created": "2017-12-13",
-        "updated": "2017-12-13",
-        "name": "Name",
+        "created": "2017-12-16",
+        "updated": "2017-12-16",
+        "name": "Vikentiy",
         "middle_name": null,
-        "surname": "First",
-        "birth_date": "2017-12-13",
-        "phone": "1",
-        "passport": "1",
-        "credit_score": 1
+        "surname": "Veresaev",
+        "birth_date": "1880-10-02",
+        "phone": "not available",
+        "passport": "was lost",
+        "credit_score": 6
     }
 },
 {
     "model": "partner.client",
     "pk": 2,
     "fields": {
-        "created": "2017-12-13",
-        "updated": "2017-12-13",
-        "name": "Name",
+        "created": "2017-12-16",
+        "updated": "2017-12-16",
+        "name": "Stanislav",
         "middle_name": null,
-        "surname": "Second",
-        "birth_date": "2017-12-13",
-        "phone": "2",
-        "passport": "2",
-        "credit_score": 2
+        "surname": "Lem",
+        "birth_date": "1950-12-03",
+        "phone": "irregular number",
+        "passport": "taken by aliens from another planet",
+        "credit_score": 8
     }
 },
 {
     "model": "partner.applicationforcreditor",
     "pk": 1,
     "fields": {
-        "created": "2017-12-13",
-        "updated": "2017-12-13",
-        "client": 1,
-        "requested_credit": 1,
+        "created": "2017-12-16",
+        "updated": "2017-12-16",
+        "client": 2,
+        "requested_credit": 2,
         "status": "New"
     }
 }
