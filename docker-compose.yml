@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  appserver:
+    build:
+      context: .
+    image: appserver
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app/unicom
+    command: python manage.py runserver 0.0.0.0:8000
