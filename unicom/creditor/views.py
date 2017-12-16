@@ -4,6 +4,7 @@ from django_filters import rest_framework as filters
 
 from partner.serializers import ApplicationForCreditorSerializer
 from partner.models import ApplicationForCreditor
+from .permissions import AccessToCreditorApi
 
 
 class ApplicationReadOnlyView(viewsets.ReadOnlyModelViewSet):
@@ -12,6 +13,7 @@ class ApplicationReadOnlyView(viewsets.ReadOnlyModelViewSet):
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
     filter_fields = ('status', 'client')
     ordering_fields = ('status', 'client')
+    permission_classes = (AccessToCreditorApi,)
 
     def retrieve(self, request, *args, **kwargs):
         # TODO: check for user, must be creditor to switch status

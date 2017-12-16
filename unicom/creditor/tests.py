@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.test import TestCase
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User, Group
 from rest_framework.test import APITestCase, APIRequestFactory
 
 from .models import Credit, Creditor
@@ -76,3 +77,9 @@ class TestViews(APITestCase):
         response = view(request, pk=1)
         app.refresh_from_db()
         self.assertEquals(app.status, ApplicationForCreditor.RECEIVED)
+
+    def test_creditor_and_admin_has_perm_to_application_view(self):
+        pass
+
+    def test_partner_and_anon_has_no_perm_to_application_view(self):
+        pass

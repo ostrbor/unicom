@@ -4,6 +4,7 @@ from django_filters import rest_framework as filters
 
 from .serializers import ClientSerializer, ApplicationForCreditorSerializer
 from .models import Client, ApplicationForCreditor
+from .permissions import AccessToPartnerApi
 
 
 class ClientViewSet(mixins.CreateModelMixin,
@@ -15,6 +16,7 @@ class ClientViewSet(mixins.CreateModelMixin,
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
     filter_fields = ('name', 'surname')
     ordering_fields = ('surname', 'credit_score')
+    permission_classes = (AccessToPartnerApi,)
 
 
 class ApplicationCreateView(mixins.CreateModelMixin,

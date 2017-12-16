@@ -124,3 +124,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# GROUPS AND PERMISSIONS
+ADMIN_GROUP = 'Administrators'
+CREDITOR_GROUP = 'Creditors'
+PARTNER_GROUP = 'Partners'
