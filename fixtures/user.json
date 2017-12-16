@@ -1,0 +1,76 @@
+[
+{
+    "model": "core.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$dkffjx25BYpN$be3FEqQs1lZK/eF0+lW+4d43FWqgm2siVrVSvNRIk3o=",
+        "last_login": "2017-12-16T15:32:43Z",
+        "is_superuser": true,
+        "username": "super",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_active": true,
+        "date_joined": "2017-12-16T15:30:18Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$r4dSaXSdfvfk$pW8f/U2wFcPmkklH4wAuuSYmgN6Q06o3yVh9ITbfQX4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_active": true,
+        "date_joined": "2017-12-16T15:33:19Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$0Li3vw9hX9T1$N+HyHzZpseobs4nkFVx56SKE+l52MEEWqbU+4Zaskh8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "creditor",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_active": true,
+        "date_joined": "2017-12-16T15:44:56Z",
+        "groups": [
+            3
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$cVpNHROz3L2f$mgcVOC5Nmt8dv60cy32na0t++Hs/N+v37k/pNUTqvgY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "partner",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_active": true,
+        "date_joined": "2017-12-16T15:45:12Z",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+}
+]
