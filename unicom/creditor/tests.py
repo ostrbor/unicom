@@ -8,8 +8,10 @@ from rest_framework.test import APITestCase, APIRequestFactory
 from .models import Credit, Creditor
 from partner.models import ApplicationForCreditor, Client
 from .views import ApplicationReadOnlyView
+from unicom.settings import CREDITOR_GROUP, ADMIN_GROUP, PARTNER_GROUP
 
 now = datetime.now()
+factory = APIRequestFactory()
 
 
 def create_models():
@@ -59,27 +61,73 @@ class TestModels(TestCase):
 
 
 class TestViews(APITestCase):
+    # TODO: refactor tests
     def setUp(self):
         self.credit, _ = create_models()
         now = datetime.now()
         self.client = Client(name='name', surname='surname', birth_date=now,
                              phone='111', passport='111', credit_score=1)
         self.client.save()
+        self.app = ApplicationForCreditor(client=self.client, requested_credit=self.credit)
+        self.app.save()
 
     def test_application_changes_status(self):
-        app = ApplicationForCreditor(client=self.client, requested_credit=self.credit)
-        app.save()
-        self.assertEquals(app.status, ApplicationForCreditor.NEW)
+        creditor_user = User.objects.create_user('creditor', password='creditor')
+        creditor_user.save()
 
-        factory = APIRequestFactory()
+        creditor_group = Group(name=CREDITOR_GROUP)
+        creditor_group.save()
+        creditor_user.groups.add(creditor_group)
+
+        self.assertEquals(self.app.status, ApplicationForCreditor.NEW)
+
+        request = factory.get('/api/v1/partner/application')
+        request.user = creditor_user
+        view = ApplicationReadOnlyView.as_view({'get': 'retrieve'})
+        response = view(request, pk=1)
+        self.app.refresh_from_db()
+        self.assertEquals(self.app.status, ApplicationForCreditor.RECEIVED)
+
+    def test_creditor_and_admin_has_perm_to_application_view(self):
+        creditor_user = User.objects.create_user('creditor', password='creditor')
+        creditor_user.save()
+
+        creditor_group = Group(name=CREDITOR_GROUP)
+        creditor_group.save()
+        creditor_user.groups.add(creditor_group)
+
+        request = factory.get('/api/v1/partner/application')
+        request.user = creditor_user
+        view = ApplicationReadOnlyView.as_view({'get': 'retrieve'})
+        response = view(request, pk=1)
+        self.assertEquals(response.status_code, 200)
+
+        creditor_user.groups.remove(creditor_group)
+        admin_group = Group(name=ADMIN_GROUP)
+        admin_group.save()
+        creditor_user.groups.add(admin_group)
+
+        request = factory.get('/api/v1/partner/application')
+        request.user = creditor_user
+        view = ApplicationReadOnlyView.as_view({'get': 'retrieve'})
+        response = view(request, pk=1)
+        self.assertEquals(response.status_code, 200)
+
+    def test_partner_and_anon_has_no_perm_to_application_view(self):
         request = factory.get('/api/v1/partner/application')
         view = ApplicationReadOnlyView.as_view({'get': 'retrieve'})
         response = view(request, pk=1)
-        app.refresh_from_db()
-        self.assertEquals(app.status, ApplicationForCreditor.RECEIVED)
+        self.assertEquals(response.status_code, 403)
 
-    def test_creditor_and_admin_has_perm_to_application_view(self):
-        pass
+        creditor_user = User.objects.create_user('creditor', password='creditor')
+        creditor_user.save()
 
-    def test_partner_and_anon_has_no_perm_to_application_view(self):
-        pass
+        partner_group = Group(name=PARTNER_GROUP)
+        partner_group.save()
+        creditor_user.groups.add(partner_group)
+
+        request = factory.get('/api/v1/partner/application')
+        request.user = creditor_user
+        view = ApplicationReadOnlyView.as_view({'get': 'retrieve'})
+        response = view(request, pk=1)
+        self.assertEquals(response.status_code, 403)
