@@ -30,7 +30,7 @@ partner:partnerpartner:Partners
 
 http://127.0.0.1:8000/api/v1/schema/
 
-**Instruction for testing creating/sending applications**
+**Instruction for testing**
 1. Login as 'super'
 
 2. http://127.0.0.1:8000/api/v1/partner/application/
@@ -63,6 +63,22 @@ Status of application must be changed automatically to VIEWED.
 
 The list of applications is decreased by viewed.
 
+
+8. To create or view list or view details of clients. 
+
+http://127.0.0.1:8000/api/v1/partner/client/
+
+http://127.0.0.1:8000/api/v1/partner/client/here-paste-pk
+
+9. Try to visit partner api as creditor or creditor api as partner.
+
+There must be Forbidden error.
+
+10. http://127.0.0.1:8000/admin/
+
+Visit as super user. All models are available (Users, Groups).
+
+Visit as admin user. Only business models are available.
 
 
 **Admin url:**
