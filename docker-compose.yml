@@ -1,11 +1,10 @@
-version: '2'
+version: '3'
 
 services:
-  appserver:
-    build:
-      context: .
-    image: appserver
+  web:
+    build: .
+    command: python3 unicom/manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/usr/src/app
-    working_dir: /usr/src/app/unicom
-    command: python manage.py runserver 0.0.0.0:8000
+      - .:/code
+    ports:
+      - "8000:8000"
