@@ -33,38 +33,41 @@ http://127.0.0.1:8000/api/v1/schema/
 **Instruction for testing**
 1. Login as 'super'
 
-2. http://127.0.0.1:8000/api/v1/partner/application/
+2. Visit partner api to create several applications for credit on behalf of premade clients.
 
-To create several applications for credit on behalf of premade clients
+http://127.0.0.1:8000/api/v1/partner/application/
 
-NOTE: to ease debugging I added ListView, so it's possible to view here all id of applications.
+NOTE: to ease debugging I added ListView, so it's possible to view here all ids of applications.
 
-3. http://127.0.0.1:8000/api/v1/creditor/application/
+3. Visit creditor api to view SENT applications. 
 
-Must be empty. As we don't send any applications.
+http://127.0.0.1:8000/api/v1/creditor/application/
 
-4. Choose any id to send application to creditor.
+It must be empty. As we don't send any applications.
+
+4. Choose any id, paste it in url and vitis it to send application to creditor.
 
 http://127.0.0.1:8000/api/v1/partner/application/send/here-paste-pk
 
-Just click PATCH button. There is no need to specify field to patch,
-as this view performs automatic patch.
+Just click PATCH button. There is no need to specify field to patch, as this view performs automatic patch.
 
-5. http://127.0.0.1:8000/api/v1/creditor/application/
+5. Visit creditor api to view SENT applications.
+
+http://127.0.0.1:8000/api/v1/creditor/application/
 
 There must be SENT applications now, visible to creditor.
 
-6. http://127.0.0.1:8000/api/v1/creditor/application/here-paste-pk
+6. Visit creditor api to view details of SENT application. Choose id and paste it in url.
 
-To view any of application choose pk and visit this url.
+http://127.0.0.1:8000/api/v1/creditor/application/here-paste-pk
+
 Status of application must be changed automatically to VIEWED.
 
-7. http://127.0.0.1:8000/api/v1/creditor/application/
+7. Now in creditor api list of applications must be decreased by viewed.
 
-The list of applications is decreased by viewed.
+http://127.0.0.1:8000/api/v1/creditor/application/
 
-
-8. To create or view list or view details of clients. 
+8. To create or to view list or to view details of clients. 
 
 http://127.0.0.1:8000/api/v1/partner/client/
 
