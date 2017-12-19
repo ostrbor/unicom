@@ -34,6 +34,7 @@ http://127.0.0.1:8000/api/v1/schema/
 1. Login as 'super'
 
 2. http://127.0.0.1:8000/api/v1/partner/application/
+
 To create several applications for credit on behalf of premade clients
 NOTE: to ease debugging I added ListView, so it's possible to view here all id of applications.
 
@@ -41,19 +42,23 @@ NOTE: to ease debugging I added ListView, so it's possible to view here all id o
 Must be empty. As we don't send any applications.
 
 4. Choose any id to send application to creditor.
+
 http://127.0.0.1:8000/api/v1/partner/application/send/<pk>
 
 Just click PATCH button. There is no need to specify field to patch,
 as this view performs automatic patch.
 
 5. http://127.0.0.1:8000/api/v1/creditor/application/
+
 There must be SENT applications now, visible to creditor.
 
 6. http://127.0.0.1:8000/api/v1/creditor/application/<pk>
+
 To view any of application choose pk and visit this url.
 Status of application must be changed automatically to VIEWED.
 
 7. http://127.0.0.1:8000/api/v1/creditor/application/
+
 The list of applications is decreased by viewed.
 
 
