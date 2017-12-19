@@ -36,9 +36,11 @@ http://127.0.0.1:8000/api/v1/schema/
 2. http://127.0.0.1:8000/api/v1/partner/application/
 
 To create several applications for credit on behalf of premade clients
+
 NOTE: to ease debugging I added ListView, so it's possible to view here all id of applications.
 
 3. http://127.0.0.1:8000/api/v1/creditor/application/
+
 Must be empty. As we don't send any applications.
 
 4. Choose any id to send application to creditor.
