@@ -54,7 +54,7 @@ as this view performs automatic patch.
 
 There must be SENT applications now, visible to creditor.
 
-6. http://127.0.0.1:8000/api/v1/creditor/application/<pk>
+6. http://127.0.0.1:8000/api/v1/creditor/application/here-paste-pk
 
 To view any of application choose pk and visit this url.
 Status of application must be changed automatically to VIEWED.
