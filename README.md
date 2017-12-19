@@ -95,6 +95,8 @@ http://127.0.0.1:8000/api/v1/partner/client/
 
 http://127.0.0.1:8000/api/v1/partner/application/
 
+http://127.0.0.1:8000/api/v1/partner/application/send/here-must-be-pk
+
 **Creditor api url:**
 
 http://127.0.0.1:8000/api/v1/creditor/application/
