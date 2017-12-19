@@ -45,7 +45,7 @@ Must be empty. As we don't send any applications.
 
 4. Choose any id to send application to creditor.
 
-http://127.0.0.1:8000/api/v1/partner/application/send/<pk>
+http://127.0.0.1:8000/api/v1/partner/application/send/here-paste-pk
 
 Just click PATCH button. There is no need to specify field to patch,
 as this view performs automatic patch.
