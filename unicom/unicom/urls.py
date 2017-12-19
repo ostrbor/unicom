@@ -20,7 +20,7 @@ from django.urls.conf import include
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 
-from partner.views import ClientViewSet, ApplicationCreateView
+from partner.views import ClientViewSet, ApplicationCreateView, ApplicationSendView
 from creditor.views import ApplicationReadOnlyView
 
 router = routers.DefaultRouter()
@@ -31,6 +31,7 @@ router.register(r'creditor/application', ApplicationReadOnlyView)
 urlpatterns = [
     path('api/v1/schema/', get_schema_view(title='unicom api')),
     path('api/v1/', include(router.urls)),
+    path('api/v1/partner/application/send/<int:pk>/', ApplicationSendView.as_view()),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

@@ -10,8 +10,8 @@ class ClientSerializer(serializers.ModelSerializer):
 
 
 class ApplicationForCreditorSerializer(serializers.ModelSerializer):
-    client = ClientSerializer()
+    client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
 
     class Meta:
         model = ApplicationForCreditor
-        fields = '__all__'
+        fields = ('id', 'client', 'requested_credit')
