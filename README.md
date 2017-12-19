@@ -35,33 +35,34 @@ http://127.0.0.1:8000/api/v1/schema/
 
 2. Visit partner api to create several applications for credit on behalf of premade clients.
 
+NOTE: to ease debugging I added ListView, so it's possible to view here all ids of applications.
+
 http://127.0.0.1:8000/api/v1/partner/application/
 
-NOTE: to ease debugging I added ListView, so it's possible to view here all ids of applications.
 
 3. Visit creditor api to view SENT applications. 
 
-http://127.0.0.1:8000/api/v1/creditor/application/
-
 It must be empty. As we don't send any applications.
+
+http://127.0.0.1:8000/api/v1/creditor/application/
 
 4. Choose any id, paste it in url and vitis it to send application to creditor.
 
-http://127.0.0.1:8000/api/v1/partner/application/send/here-paste-pk
-
 Just click PATCH button. There is no need to specify field to patch, as this view performs automatic patch.
+
+http://127.0.0.1:8000/api/v1/partner/application/send/here-paste-pk
 
 5. Visit creditor api to view SENT applications.
 
-http://127.0.0.1:8000/api/v1/creditor/application/
-
 There must be SENT applications now, visible to creditor.
+
+http://127.0.0.1:8000/api/v1/creditor/application/
 
 6. Visit creditor api to view details of SENT application. Choose id and paste it in url.
 
-http://127.0.0.1:8000/api/v1/creditor/application/here-paste-pk
+Status of application must be changed automatically to RECEIVED.
 
-Status of application must be changed automatically to VIEWED.
+http://127.0.0.1:8000/api/v1/creditor/application/here-paste-pk
 
 7. Now in creditor api list of applications must be decreased by viewed.
 
@@ -81,7 +82,7 @@ There must be Forbidden error.
 
 Visit as super user. All models are available (Users, Groups).
 
-Visit as admin user. Only business models are available.
+Visit as admin user. Only some business models are available (from partner api).
 
 
 **Admin url:**
